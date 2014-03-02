@@ -8,21 +8,17 @@ var Server = mongo.Server,
     Db = mongo.Db,
     BSON = mongo.BSONPure;
 
-var server = new Server('localhost', 27017, {auto_reconnect: true});
+var server = new Server('ds033669.mongolab.com', 33669, {auto_reconnect: true});
 db = new Db('placius', server, {safe: true});
    
-app.listen(8080);
+app.listen(3000);
 
 db.open(function(err, db) {
-    if(!err) {
-        console.log("Connected to 'placius' database");
-        db.collection('members', {strict:true}, function(err, collection) {
-            if (err) {
-                console.log("The 'wines' collection doesn't exist. Creating it with sample data...");
-                populateDB();
-            }
-        });
-    }
+  
+  db.authenticate('douwevdijk', 'willem901', function(err, result) {
+  
+  });
+  
 });
 
 app.configure(function(){
@@ -56,6 +52,12 @@ var obj = {filename: '/api/public/' + filename};
 			
       });
 	});
+});
+
+app.get('/', function (req, res) {
+
+	res.send('t werkt');
+	
 });
 
 app.get('/api/members', function (req, res) {
