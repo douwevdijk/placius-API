@@ -8,14 +8,14 @@ var Server = mongo.Server,
     Db = mongo.Db,
     BSON = mongo.BSONPure;
 
-var server = new Server('ds033669.mongolab.com', 33669, {auto_reconnect: true});
+var server = new Server('{URL}', 33669, {auto_reconnect: true});
 db = new Db('placius', server, {safe: true});
    
 app.listen(3000);
 
 db.open(function(err, db) {
   
-  db.authenticate('douwevdijk', 'willem901', function(err, result) {
+  db.authenticate('username', 'pass', function(err, result) {
   
   });
   
