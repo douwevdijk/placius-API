@@ -56,7 +56,7 @@ var obj = {filename: '/api/public/' + filename};
 
 app.get('/', function (req, res) {
 
-	res.send('t werkt');
+	res.send('WELCOME TO PLACIUS API');
 	
 });
 
